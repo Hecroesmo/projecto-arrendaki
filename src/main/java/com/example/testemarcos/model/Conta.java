@@ -1,14 +1,26 @@
 package com.example.testemarcos.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @ToString
@@ -28,11 +40,11 @@ public class Conta implements UserDetails {
     private String email;
     private String password;
 
-    @OneToOne
+    @OneToOne(optional = false, cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "fk_person")
     private Pessoa pessoa;
 
-    @ManyToOne
+    @ManyToOne(optional = false, cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "fk_type_of_account")
     private TipoConta tipoConta;
 
@@ -70,6 +82,4 @@ public class Conta implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-
-   }
+}

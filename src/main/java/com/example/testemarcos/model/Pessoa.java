@@ -1,12 +1,20 @@
 package com.example.testemarcos.model;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @NoArgsConstructor
 @Data
@@ -34,7 +42,6 @@ public class Pessoa implements Serializable {
   @JoinColumn(name = "fk_locality")
   private Localidade fkLocalidade;
 
-  @OneToOne(mappedBy = "pessoa")
+  @OneToOne(mappedBy = "pessoa", optional = true)
   private Conta conta;
-
 }
