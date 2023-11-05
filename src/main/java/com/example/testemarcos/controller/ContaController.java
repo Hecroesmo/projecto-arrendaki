@@ -6,6 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,8 @@ public class ContaController {
     public Conta salvar(@RequestBody Conta conta) {
         TipoConta tipoConta = tipoContaRepo.findById(conta.getTipoConta().getPkTypeOfAccount()).get();
         conta.setTipoConta(tipoConta);
-        System.err.println(conta);
+        String encodedPassword = new BCryptPasswordEncoder().encode(conta.getPassword());
+        conta.setPassword(encodedPassword);
         return contaRepo.save(conta);
     }
 
@@ -53,8 +55,4 @@ public class ContaController {
             throw new UsernameNotFoundException("Requisição Invalida do Conta");
         }
     }
-
-
-
-
 }
