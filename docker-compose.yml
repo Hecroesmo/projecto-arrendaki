@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  projectoarrendaki:
+    image: projectoarrendaki
+    build:
+      context: .
+      dockerfile: ./Dockerfile

@@ -13,7 +13,7 @@ public class ArrendakiApplication {
         SpringApplication.run(ArrendakiApplication.class, args);
     }
 
-    @Bean
+    /*@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -23,6 +23,6 @@ public class ArrendakiApplication {
                 .allowedMethods("*");
             }
         };
-    }
+    }*/
 
 }

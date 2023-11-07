@@ -1,9 +1,7 @@
 package com.example.testemarcos.controller;
 
 import com.example.testemarcos.model.TipoContrato;
-import com.example.testemarcos.repository.LocalidadeRepository;
 import com.example.testemarcos.repository.TipoContratoRepository;
-import com.example.testemarcos.utility.TipoContaUtility;
 import com.example.testemarcos.utility.TipoContratoUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tipo_contrato")
+@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
 public class TipoContratoController {
   @Autowired
   private TipoContratoRepository tipoContratoRepository;
