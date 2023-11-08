@@ -24,7 +24,7 @@ import com.example.testemarcos.utility.PersonUtility;
 
 @RestController
 @RequestMapping("/persons")
-@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
+@CrossOrigin(origins = "*",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
 public class PessoaController {
   @Autowired
   private PessoaRepository personRepo;

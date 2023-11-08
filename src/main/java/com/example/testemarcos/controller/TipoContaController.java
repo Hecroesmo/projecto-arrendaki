@@ -21,7 +21,7 @@ import com.example.testemarcos.utility.TipoContaUtility;
 
 @RestController
 @RequestMapping("/tipo_conta")
-@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
+@CrossOrigin(origins = "*",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
 public class TipoContaController {
   @Autowired
   private TipoContaRepository tipoContaRepository;
