@@ -23,7 +23,7 @@ import com.example.testemarcos.utility.JwtUtility;
 
 @RestController
 @RequestMapping("/api/usuario")
-@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
+@CrossOrigin(origins = "*",allowedHeaders = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
 public class ContaController {
 
     @Autowired
